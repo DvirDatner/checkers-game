@@ -1,0 +1,19 @@
+<app-alert-message message="movement in not valid!" *ngIf="notValidMovement" (close)="onHandleError()"></app-alert-message>
+<app-alert-message message="player {{ playerTurn }} Win!" *ngIf="gameFinish" (close)="onHandleFinish()"></app-alert-message>
+<div class="row justify-contetnt-center">
+    <div class="col-12 text-center">
+        <button class="btn btn-danger btn-block" (click)="onCancelChoice()">Cancel Choice</button>
+    </div>
+    <div class="col-2">
+        <span [style.background-color]="playerTurn === 1 ? 'green' : 'white'">Player 1 - Black</span>
+    </div>
+    <div class="col-8">
+        <app-board></app-board>
+    </div>
+    <div class="col-2">
+        <span [style.background-color]="playerTurn === 2 ? 'green' : 'white'">Player 2 - White</span>
+    </div>
+    <div class="col-12">
+        <app-alert-message message="movement in not valid!" *ngIf="notValidMovement" (close)="onHandleError()"></app-alert-message>
+    </div>
+</div>
