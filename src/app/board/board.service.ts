@@ -13,9 +13,9 @@ export class BoardService {
     [0, 1, 0, 1, 0, 1, 0, 1],
     [1, 0, 1, 0, 1, 0, 1, 0],
   ];
-  playerTurn!: number;
-  currentPiecePlace!: { row: number; col: number };
-  isPieceChoosed = false;
+  private playerTurn!: number;
+  private currentPiecePlace!: { row: number; col: number };
+  private isPieceChoosed = false;
 
   boardUpdated = new EventEmitter<void>();
   errorMove = new EventEmitter<void>();
@@ -115,6 +115,7 @@ export class BoardService {
         }
       }
 
+      // other case - illegal step
       this.oneStepBack();
       return;
     }
@@ -140,6 +141,7 @@ export class BoardService {
         }
       }
 
+      // other case - illegal step
       this.oneStepBack();
       return;
     }
